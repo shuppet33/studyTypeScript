@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es2022", // стандарт компилятора
+    "removeComments": false, // удаление комм
+    "outDir": "javascript", // имя папки выгрузки js
+    "sourceMap": true, // файл, для просмотра работы ts
+    "noEmitOnError": true, // не собирать файл при ошибках
+    "alwaysStrict": true, // строгий режим
+    "allowUnreachableCode": false // используемый код
+  }
+}
