@@ -321,4 +321,45 @@ setAlertType('warning')
 
 
 
-// Generic | Дженерик
+// Generic | Дженерик --> Тип <из чего состоит>
+const arrayOfNumbers: Array<number> = [1, 2, 3, 5]
+const arrayOfStrings: Array<string> = ['aaa', 'bbb']
+
+function reverse<T>(array: T[]): T[] { // функция работает с типом Т, принимает массив типов Т и возвращает значение типа Т и данный параметр будет динамически подстраиваться под передаваемые значения :)
+    return array.reverse()
+}
+
+reverse(arrayOfStrings)
+reverse(arrayOfNumbers)
+
+
+
+
+// Вспомогательные операторы
+
+interface IPerson {
+    name: string
+    age: number
+}
+
+type PersonKeys = keyof IPerson  // 'name' | 'age'
+
+let key: PersonKeys = 'name'
+key = 'age'
+// key = 'job' --> Ошибка
+
+
+
+type User = {
+    _id: number
+    name: string
+    email: string
+    createdAdd: Date
+}
+
+type UserKeysNoMeta = Exclude<keyof User, '_id' | 'createdAdd'> // 'name' | 'email'
+type UserKeysNoMeta = Pick<User, 'name' | 'email'>
+
+
+const u1: UserKeysNoMeta = 'name'
+// u1 = '_id' --> Ошибка
